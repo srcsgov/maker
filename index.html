@@ -36,12 +36,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px; /* Increased width */
+            width: 500px;
             background-color: #001F3F;
             color: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 30px; /* Increased padding */
+            padding: 30px;
             display: none;
             flex-direction: column;
             justify-content: space-between;
@@ -51,18 +51,18 @@
             background-color: #FF8832;
             color: white;
             font-weight: bold;
-            font-size: 24px; /* Larger font size */
-            padding: 15px; /* Adjusted padding */
+            font-size: 24px;
+            padding: 15px;
             border-radius: 8px;
             text-align: center;
         }
 
         .content-container {
-            margin-top: 20px; /* Increased spacing */
+            margin-top: 20px;
         }
 
         .content {
-            font-size: 18px; /* Larger font size for the description */
+            font-size: 18px;
             color: #FFF;
         }
 
@@ -71,7 +71,7 @@
             top: -30px;
             right: 50%;
             transform: translateX(50%);
-            width: 50px; /* Increased logo size */
+            width: 50px;
             height: 50px;
             z-index: 2;
             background-color: #001F3F;
@@ -80,7 +80,7 @@
         }
 
         .footer {
-            font-size: 16px; /* Larger footer font */
+            font-size: 16px;
             color: #FF8832;
             margin-top: 30px;
             align-self: flex-start;
@@ -197,19 +197,18 @@ const titles = [
     const randomContent = document.getElementById('random-content');
     const backgroundImage = document.getElementById('background-image');
 
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'y') {
-            const randomIndex = Math.floor(Math.random() * titles.length);
-            randomTitle.textContent = titles[randomIndex].title;
-            randomContent.textContent = titles[randomIndex].description;
+    // Functionality for touchscreen compatibility
+    document.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * titles.length);
+        randomTitle.textContent = titles[randomIndex].title;
+        randomContent.textContent = titles[randomIndex].description;
 
-            // Randomize background image
-            const randomImageIndex = Math.floor(Math.random() * 10) + 1;
-            backgroundImage.style.backgroundImage = `url('photo${randomImageIndex}.png')`;
-            backgroundImage.style.display = 'block';
+        // Randomize background image
+        const randomImageIndex = Math.floor(Math.random() * 10) + 1;
+        backgroundImage.style.backgroundImage = `url('photo${randomImageIndex}.png')`;
+        backgroundImage.style.display = 'block';
 
-            infoBox.style.display = 'flex';
-        }
+        infoBox.style.display = 'flex';
     });
 </script>
 
