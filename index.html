@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>International Aid Corps</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #background-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        #info-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px; /* Increased width */
+            background-color: #001F3F;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px; /* Increased padding */
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .tab {
+            background-color: #FF8832;
+            color: white;
+            font-weight: bold;
+            font-size: 24px; /* Larger font size */
+            padding: 15px; /* Adjusted padding */
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .content-container {
+            margin-top: 20px; /* Increased spacing */
+        }
+
+        .content {
+            font-size: 18px; /* Larger font size for the description */
+            color: #FFF;
+        }
+
+        .logo {
+            position: absolute;
+            top: -30px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 50px; /* Increased logo size */
+            height: 50px;
+            z-index: 2;
+            background-color: #001F3F;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .footer {
+            font-size: 16px; /* Larger footer font */
+            color: #FF8832;
+            margin-top: 30px;
+            align-self: flex-start;
+        }
+
+        #image-footer {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+        }
+
+        #image-footer-line {
+            width: 700px;
+            height: 5px;
+            background-color: #FF8832;
+            margin: 0 auto 10px auto;
+        }
+
+        #image-footer-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FF8832;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div id="background-image">
+    <div id="image-footer">
+        <div id="image-footer-line"></div>
+        <div id="image-footer-text">International Aid Corps</div>
+    </div>
+</div>
+<div id="info-box">
+    <img src="logo1.png" alt="Logo" class="logo">
+    <div class="tab" id="random-title">Aid Title</div>
+    <div class="content-container">
+        <div class="content" id="random-content">International Aid Corps</div>
+    </div>
+    <div class="footer">aidcorp.online</div>
+</div>
+
+<script>
+    const titles = [
+        { title: "The number of children recruited by armed groups in Haiti increased by 70%", description: "A sharp rise in child recruitment has been reported amid worsening political instability." },
+        { title: "Emergency medical teams deployed to earthquake zones", description: "Swift action saves countless lives in disaster-stricken areas." },
+        { title: "Access to clean water improves life expectancy by 15%", description: "Water sanitation initiatives yield remarkable health benefits." },
+        { title: "Vaccination drives reach over 1 million children in rural areas", description: "Expanded healthcare access is transforming rural communities." },
+        { title: "Food insecurity rises in conflict zones worldwide", description: "Humanitarian aid struggles to meet growing demands in crisis areas." },
+        { title: "UN warns of severe droughts affecting millions in Africa", description: "Climate change impacts are intensifying food and water shortages." },
+        { title: "Education programs empower refugee girls", description: "Breaking barriers to education changes lives in refugee camps." },
+        { title: "Millions at risk due to floods in Southeast Asia", description: "Emergency relief teams mobilize as monsoon floods devastate regions." },
+        { title: "Clean cooking initiatives reduce indoor air pollution", description: "Safer stoves improve health for families in developing countries." },
+        { title: "Malnutrition treatment saves 500,000 children annually", description: "Therapeutic food programs are a lifeline for the most vulnerable." },
+        // Add up to 250 titles and descriptions here
+    ];
+
+    const infoBox = document.getElementById('info-box');
+    const randomTitle = document.getElementById('random-title');
+    const randomContent = document.getElementById('random-content');
+    const backgroundImage = document.getElementById('background-image');
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'y') {
+            const randomIndex = Math.floor(Math.random() * titles.length);
+            randomTitle.textContent = titles[randomIndex].title;
+            randomContent.textContent = titles[randomIndex].description;
+
+            // Randomize background image
+            const randomImageIndex = Math.floor(Math.random() * 10) + 1;
+            backgroundImage.style.backgroundImage = `url('photo${randomImageIndex}.png')`;
+            backgroundImage.style.display = 'block';
+
+            infoBox.style.display = 'flex';
+        }
+    });
+</script>
+
+</body>
+</html>
